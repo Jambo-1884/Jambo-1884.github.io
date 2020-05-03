@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HMFC Squad selector</title>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1350px;
+}
+
+body {
+  background-color: #800000;
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container .dropdownGK {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownRB {
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownRCB {
+  position: absolute;
+  top: 45%;
+  left: 41%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownLCB {
+  position: absolute;
+  top: 45%;
+  left: 59%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownLB {
+  position: absolute;
+  top: 45%;
+  left: 75%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownRM {
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownRCM {
+  position: absolute;
+  top: 75%;
+  left: 41%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownLCM {
+  position: absolute;
+  top: 75%;
+  left: 59%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownLM {
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownRST {
+  position: absolute;
+  top: 100%;
+  left: 41%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .dropdownLST {
+  position: absolute;
+  top: 100%;
+  left: 59%;
+  width: 280px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 {  
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+</style>
+</head>
+<body>
+
+<h1>HMFC Squad selector</h1>
+
+<div class="container">
+<img src="football field.png" alt="Avatar">
+
+  <select id="dropdownGK" select class="dropdownGK" name="dropdownGK" onchange="getValue(this)">
+	<option disabled selected value> -- select a GoalKeeper -- </option>
+    <option value="Antti Niemi">Antti Niemi</option>
+	<option value="Gilles Rousset">Gilles Rousset</option>
+	<option value="Henry Smith">Henry Smith</option>
+	<option value="Jamie Mcdonald">Jamie Mcdonald</option>
+	<option value="Jim Cruickshank">Jim Cruickshank</option>
+	<option value="Marián Kello">Marián Kello</option>
+  </select> 
+
+  <select id="dropdownRB" select class="dropdownRB" name="dropdownRB" onchange="getValue(this)">
+	<option disabled selected value> -- select a Right Back -- </option>
+    <option value="Callum Paterson">Callum Paterson</option>
+    <option value="Jamie Hammil">Jamie Hammil</option>
+	<option value="Jim Jefferies">Jim Jefferies</option>
+	<option value="Robbie Neilson">Robbie Neilson</option>
+	<option value="Ryan Mcgowan">Ryan Mcgowan</option>
+	<option value="Sandy Jardine">Sandy Jardine</option>
+	<option value="Walter Kidd">Walter Kidd</option>
+  </select>
+  
+  <select id="dropdownRCB" select class="dropdownRCB" name="dropdownRCB" onchange="getValue(this)">
+	<option disabled selected value> -- select a Centre Back -- </option>
+    <option value="Alim Ozturk">Alim Ozturk</option>
+    <option value="Andy Webster">Andy Webser</option>
+	<option value="Christophe Berra">Christophe Berra</option>
+	<option value="Craig Levein">Craig Levein</option>
+	<option value="Dave Mackay">Dave Mackay</option>
+	<option value="Dave McPherson">Dave McPherson</option>
+	<option value="Igor Rossi">Igor Rossi</option>
+	<option value="Marius Žaliūkas">Marius Žaliūkas</option>
+	<option value="John Souttar">John Souttar</option>
+  </select>
+  
+  <select id="dropdownLCB" select class="dropdownLCB" name="dropdownLCB" onchange="getValue(this)">
+	<option disabled selected value> -- select a Centre Back -- </option>
+    <option value="Alim Ozturk">Alim Ozturk</option>
+    <option value="Andy Webster">Andy Webser</option>
+	<option value="Christophe Berra">Christophe Berra</option>
+	<option value="Craig Levein">Craig Levein</option>
+	<option value="Dave Mackay">Dave Mackay</option>
+	<option value="Dave McPherson">Dave McPherson</option>
+	<option value="Igor Rossi">Igor Rossi</option>
+	<option value="Marius Žaliūkas">Marius Žaliūkas</option>
+	<option value="John Souttar">John Souttar</option>
+  </select>
+  
+  <select id="dropdownLB" select class="dropdownLB" name="dropdownLB" onchange="getValue(this)">
+	<option disabled selected value> -- select a Left Back -- </option>
+    <option value="Alan Maybury">Alan Maybury</option>
+	<option value="Danny Grainger">Danny Grainger</option>
+	<option value="Gary Naismith">Gary Naismith</option>
+	<option value="Lee Wallace">Lee Wallace</option>
+  </select>
+  
+  <select id="dropdownRM" select class="dropdownRM" name="dropdownRM" onchange="getValue(this)">
+	<option disabled selected value> -- select a Right Midfielder -- </option>
+    <option value="Andy Driver">Andy Driver</option>
+	<option value="David Templeton">David Templeton</option>
+	<option value="George Sinclair">George Sinclair</option>
+	<option value="George Wilson">George Wilson</option>
+	<option value="Jamie Walker">Jamie Walker</option>
+	<option value="Jean-Louis Valois">Jean-Louis Valois</option>
+	<option value="John Colquhoun">John Colquhoun</option>
+	<option value="John Urquhart">John Urquhart</option>
+	<option value="Neil McCann">Neil McCann</option>
+	<option value="Saulius Mikoliūnas">Saulius Mikoliūnas</option>
+	<option value="Suso Santana">Suso Santana</option>
+	<option value="Tommy Walker">Tommy Walker</option>
+
+  </select>
+  
+  <select id="dropdownRCM" select class="dropdownRCM" name="dropdownRCM" onchange="getValue(this)">
+	<option disabled selected value> -- select a Central Midfielder -- </option>
+    <option value="Alex MacDonald">Alex MacDonald</option>
+	<option value="Colin Cameron">Colin Cameron</option>
+	<option value="Drew Busby">Drew Busby</option>
+	<option value="Gary Locke">Gary Locke</option>
+	<option value="Gary Mackay">Gary Mackay</option>
+	<option value="Ian Black">Ian Black</option>
+	<option value="Julien Brellier">Julien Brellier</option>
+	<option value="Michael Stewart">Michael Stewart</option>
+	<option value="Paul Hartley">Paul Hartley</option>
+	<option value="Peter Haring">Peter Haring</option>
+	<option value="Phil Stamp">Phil Stamp</option>
+	<option value="Rubén Palazuelos">Rubén Palazuelos</option>
+	<option value="Rudi Skácel">Rudi Skácel</option>
+	<option value="Scott Severin">Scott Severin</option>
+	<option value="Stefano Salvatori">Stefano Salvatori</option>
+	<option value="Thomas Flogal">Thomas Flogal</option>
+  </select>
+  
+  <select id="dropdownLCM" select class="dropdownLCM" name="dropdownLCM" onchange="getValue(this)">
+	<option disabled selected value> -- select a Central Midfielder -- </option>
+    <option value="Alex MacDonald">Alex MacDonald</option>
+	<option value="Colin Cameron">Colin Cameron</option>
+	<option value="Drew Busby">Drew Busby</option>
+	<option value="Gary Locke">Gary Locke</option>
+	<option value="Gary Mackay">Gary Mackay</option>
+	<option value="Ian Black">Ian Black</option>
+	<option value="Julien Brellier">Julien Brellier</option>
+	<option value="Michael Stewart">Michael Stewart</option>
+	<option value="Paul Hartley">Paul Hartley</option>
+	<option value="Peter Haring">Peter Haring</option>
+	<option value="Phil Stamp">Phil Stamp</option>
+	<option value="Rubén Palazuelos">Rubén Palazuelos</option>
+	<option value="Rudi Skácel">Rudi Skácel</option>
+	<option value="Scott Severin">Scott Severin</option>
+	<option value="Stefano Salvatori">Stefano Salvatori</option>
+	<option value="Thomas Flogal">Thomas Flogal</option>
+  </select>
+  
+  <select id="dropdownLM" select class="dropdownLM" name="dropdownLM" onchange="getValue(this)">
+	<option disabled selected value> -- select a Left Midfielder -- </option>
+    <option value="Andy Driver">Andy Driver</option>
+	<option value="David Templeton">David Templeton</option>
+	<option value="George Sinclair">George Sinclair</option>
+	<option value="George Wilson">George Wilson</option>
+	<option value="Jamie Walker">Jamie Walker</option>
+	<option value="Jean-Louis Valois">Jean-Louis Valois</option>
+	<option value="John Colquhoun">John Colquhoun</option>
+	<option value="John Urquhart">John Urquhart</option>
+	<option value="Neil McCann">Neil McCann</option>
+	<option value="Saulius Mikoliūnas">Saulius Mikoliūnas</option>
+	<option value="Suso Santana">Suso Santana</option>
+	<option value="Tommy Walker">Tommy Walker</option>
+	
+  </select>
+  
+  <select id="dropdownRST" select class="dropdownRST" name="dropdownRST" onchange="getValue(this)">
+	<option disabled selected value> -- select a Stricker -- </option>
+	<option value="Alex Young">Alex Young</option>
+	<option value="Alfie Conn Sr">Alfie Conn Sr</option>
+	<option value="Andy Kirk">Andy Kirk</option>
+	<option value="Bobby Walker">Bobby Walker</option>
+	<option value="Donald Ford	">Donald Ford	</option>
+	<option value="Edgaras Jankauskas">Edgaras Jankauskas</option>
+	<option value="Gary McSwegan">Gary McSwegan</option>
+	<option value="John Robertson">John Robertson</option>
+	<option value="José Quitongo">José Quitongo</option>
+	<option value="Kyle Lafferty">Kyle Lafferty</option>
+	<option value="Mark de Vries">Mark de Vries</option>	
+	<option value="Ryan Stevenson">Ryan Stevenson</option>
+	<option value="Stéphane Adam">Stéphane Adam</option>
+	<option value="Steven Naismith">Steven Naismith</option>
+	<option value="Willie Bauld">Willie Bauld</option>
+  </select>
+  
+  <select id="dropdownLST" select class="dropdownLST" name="dropdownLST" onchange="getValue(this)">
+	<option disabled selected value> -- select a Stricker -- </option>
+	<option value="Alex Young">Alex Young</option>
+	<option value="Alfie Conn Sr">Alfie Conn Sr</option>
+	<option value="Andy Kirk">Andy Kirk</option>
+	<option value="Bobby Walker">Bobby Walker</option>
+	<option value="Donald Ford	">Donald Ford	</option>
+	<option value="Edgaras Jankauskas">Edgaras Jankauskas</option>
+	<option value="Gary McSwegan">Gary McSwegan</option>
+	<option value="John Robertson">John Robertson</option>
+	<option value="José Quitongo">José Quitongo</option>
+	<option value="Kyle Lafferty">Kyle Lafferty</option>
+	<option value="Mark de Vries">Mark de Vries</option>	
+	<option value="Ryan Stevenson">Ryan Stevenson</option>
+	<option value="Stéphane Adam">Stéphane Adam</option>
+	<option value="Steven Naismith">Steven Naismith</option>
+	<option value="Willie Bauld">Willie Bauld</option>
+  </select>
+  
+<table style="margin-top:-1065px; margin-left:1623px; text-align: left;">
+  <tr>
+  
+    <th>Position</th>
+    <th>Player</th> 
+  </tr>
+  <tr>
+    <td>GoalKeepr</td>
+	<td id="dropdownGK-value"></td>
+  </tr>
+  <tr>
+    <td>Right Back</td>
+    <td id="dropdownRB-value"></td>
+  </tr>
+  <tr>
+    <td>Centre Back</td>
+    <td id="dropdownRCB-value"></td>
+  </tr>
+  <tr>
+    <td>Centre Back</td>
+    <td id="dropdownLCB-value"></td>
+  </tr>
+  <tr>
+    <td>Left Back</td>
+    <td id="dropdownLB-value"></td>
+  </tr>
+  <tr>
+    <td>Right Midfielder</td>
+    <td id="dropdownRM-value"></td>
+  </tr>
+  <tr>
+    <td>Centre Midfielder</td>
+    <td id="dropdownRCM-value"></td>
+  </tr>
+  <tr>
+    <td>Centre Midfielder</td>
+    <td id="dropdownLCM-value"></td>
+  </tr>
+  <tr>
+    <td>Left Midfielder</td>
+    <td id="dropdownLM-value"></td>
+  </tr>
+    <tr>
+    <td>Stricker</td>
+    <td id="dropdownRST-value"></td>
+  </tr>
+  <tr>
+    <td>Stricker</td>
+    <td id="dropdownLST-value"></td>
+  </tr>
+  </table>
+  <br>
+  
+
+</form> 
+
+
+</div>
+</body>
+<script type="text/javascript">
+          function getValue(data)
+            {
+             var myDiv = document.getElementById( data.id + '-value' );
+             myDiv.innerHTML = data.value;
+         }
+		
+        </script>
+</html>
